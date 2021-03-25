@@ -1,14 +1,25 @@
 package co.com.personacliente2021.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class Persona {
 
-      private Integer idEstudiante;
-      private String  tipoDocumento;
-      private String  numeroDocumento;
-      private String  nombres;
-      private String apellidos;
-      private String instituacionEducativa;
+
+      private Integer idPersona;
+      private String numeroDocumento;
+      private TipoDocumento tipoDocumento;
+      private String nombre;
+      private String apellido;
+      private boolean activo;
+
+      public TipoDocumento getTipoDocumento() {
+            if(tipoDocumento == null) {
+                  tipoDocumento = new TipoDocumento();
+            }
+            return tipoDocumento;
+      }
+
 }
