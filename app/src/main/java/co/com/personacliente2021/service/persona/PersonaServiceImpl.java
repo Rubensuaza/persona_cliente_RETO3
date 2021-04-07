@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import co.com.personacliente2021.adapter.PersonaAdapter;
+import co.com.personacliente2021.dto.PersonaDTO;
 import co.com.personacliente2021.model.Persona;
 import co.com.personacliente2021.service.persona.respuesta.RespuestaPersona;
 import co.com.personacliente2021.util.CustomResponse;
@@ -52,7 +53,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
         });
     }
 
-     public void insertar(Persona persona) {
+     public void insertar(PersonaDTO persona) {
          Retrofit retrofit =  getRetrofitInstance();
          PersonaClient client = retrofit.create(PersonaClient.class);
          Call<CustomResponse<RespuestaPersona>> response =client.insertar(Parametro.CONTENT_TYPE_APPLICATION_JSON,persona);

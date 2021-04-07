@@ -1,11 +1,14 @@
 package co.com.personacliente2021.service.tipodocumento;
 
 import android.content.Context;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 
 import java.util.List;
+
+import co.com.personacliente2021.R;
 import co.com.personacliente2021.model.TipoDocumento;
 import co.com.personacliente2021.util.RetrofitFactory;
 import retrofit2.Call;
@@ -15,7 +18,7 @@ import retrofit2.Retrofit;
 
 public class TipoDocumentoServiceImpl extends RetrofitFactory {
 
-    private Context context;
+
 
     public TipoDocumentoServiceImpl(Context context){
         super(context);
@@ -29,7 +32,16 @@ public class TipoDocumentoServiceImpl extends RetrofitFactory {
         response.enqueue(new Callback<List<TipoDocumento>>() {
             @Override
             public void onResponse(Call<List<TipoDocumento>> call, Response<List<TipoDocumento>> response) {
-
+                 List<TipoDocumento> tiposDocumentos = response.body();
+                 if(tiposDocumentos != null){
+                     String [] documentosArray = new String[tiposDocumentos.size()+1];
+                     documentosArray[0] = getContext().getString(R.string.seleccione);
+                     for(int i = 0; i < tiposDocumentos.size(); i ++){
+                         documentosArray[i+1] = tiposDocumentos.get(i).getNombreDocumento();
+                     }
+                     ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(),R.layout.support_simple_spinner_dropdown_item,documentosArray);
+                     spinner.setAdapter(arrayAdapter);
+                 }
             }
 
             @Override
