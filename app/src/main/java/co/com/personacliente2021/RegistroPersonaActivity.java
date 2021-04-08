@@ -82,6 +82,9 @@ public class RegistroPersonaActivity extends AppCompatActivity {
     private void guardarInformacion() {
         PersonaServiceImpl personaService = new PersonaServiceImpl(this);
         persona.setIdTipoDocumento(documentoSeleccionado);
+        persona.setNumeroDocumento(txtDocumento.getText().toString());
+        persona.setNombre(txtNombre.getText().toString());
+        persona.setApellido(txtApellido.getText().toString());
         personaService.insertar(persona);
     }
 }
