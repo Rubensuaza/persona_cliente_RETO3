@@ -14,6 +14,9 @@ public class RetrofitFactory {
             .readTimeout(Parametro.CONNECTION_TIMEOUT_RETROFIT, TimeUnit.SECONDS)
             .connectTimeout(Parametro.CONNECTION_TIMEOUT_RETROFIT, TimeUnit.SECONDS)
             .build();
+
+
+
     private Context context;
 
     public RetrofitFactory(Context context) {
@@ -24,6 +27,8 @@ public class RetrofitFactory {
     protected Retrofit getRetrofitInstance(){
         return new Retrofit.Builder().baseUrl(Parametro.URL_BASE).addConverterFactory(GsonConverterFactory.create()).client(simpleClient).build();
     }
+
+
 
     protected Context getContext(){
         return context;

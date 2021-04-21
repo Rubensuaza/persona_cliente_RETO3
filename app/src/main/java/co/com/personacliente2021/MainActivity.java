@@ -23,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         PersonaServiceImpl personaService = new PersonaServiceImpl(this);
         personaService.getPersona(listViewPersonas);
-    }
+
+   }
 
     public void goToRegistroPersona(View view) {
         Intent intent = new Intent(MainActivity.this,RegistroPersonaActivity.class);

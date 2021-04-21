@@ -2,6 +2,7 @@ package co.com.personacliente2021;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -44,6 +46,7 @@ public class RegistroPersonaActivity extends AppCompatActivity {
         ActionBarUtil.getInstance(this, true).setToolBar(getString(R.string.registro_persona), getString(R.string.insertar));
         listarTiposDocumentos();
         onSelectItemSpinner();
+        Toast.makeText(getApplicationContext(),getApplicationContext().getSharedPreferences(getString(R.string.share_preference), Context.MODE_PRIVATE).getString("access_token",""),Toast.LENGTH_SHORT).show();
     }
 
     private void onSelectItemSpinner() {
