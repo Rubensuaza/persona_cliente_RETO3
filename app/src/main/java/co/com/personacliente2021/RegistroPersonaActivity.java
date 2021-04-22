@@ -46,7 +46,7 @@ public class RegistroPersonaActivity extends AppCompatActivity {
         ActionBarUtil.getInstance(this, true).setToolBar(getString(R.string.registro_persona), getString(R.string.insertar));
         listarTiposDocumentos();
         onSelectItemSpinner();
-        Toast.makeText(getApplicationContext(),getApplicationContext().getSharedPreferences(getString(R.string.share_preference), Context.MODE_PRIVATE).getString("access_token",""),Toast.LENGTH_SHORT).show();
+
     }
 
     private void onSelectItemSpinner() {

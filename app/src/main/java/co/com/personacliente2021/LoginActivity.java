@@ -2,6 +2,7 @@ package co.com.personacliente2021;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -30,5 +31,10 @@ public class LoginActivity extends AppCompatActivity {
 
     public void login(View view) {
         loginService.login(txtUsername.getText().toString(), txtPassword.getText().toString());
+    }
+
+    public void redirect() {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 }
